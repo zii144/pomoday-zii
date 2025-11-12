@@ -310,7 +310,7 @@ export const InputBox = props => {
           onKeyPress={processInput}
           onKeyUp={processInput}
           onKeyDown={onKeyDown}
-          placeholder="Type anything here..."
+          placeholder="在此輸入指令或任務內容..."
         />
         <textarea
           ref={suggestRef}
@@ -341,8 +341,7 @@ export const InputBox = props => {
             className={
               'hidden sm:block bg-white px-3 py-2 rounded-lg shadow-lg'
             }>
-            Press <code>Enter</code> for new line. <code>Ctrl + Enter</code> for
-            submit.
+            按 <code>Enter</code> 換行，<code>Ctrl + Enter</code> 送出。
           </span>
         ) : state.settings.hintPopup ? (
           <span
@@ -353,91 +352,91 @@ export const InputBox = props => {
               <b>
                 <u>/</u>:
               </b>{' '}
-              search for anything
+              搜尋任務或標籤
             </p>
             <p>
               <b>
                 <u>t</u>ask:
               </b>{' '}
-              create a new task
+              建立新任務
             </p>
             <p>
               <b>
                 <u>b</u>egin:
               </b>{' '}
-              start timer
+              開始計時
             </p>
             <p>
               <b>
                 <u>st</u>op:
               </b>{' '}
-              stop timer
+              停止計時
             </p>
             <p>
               <b>
                 <u>fl</u>ag:
               </b>{' '}
-              flag a task
+              標記任務
             </p>
             <p>
               <b>
                 <u>e</u>dit:
               </b>{' '}
-              edit a task
+              編輯任務
             </p>
             <p>
               <b>
                 <u>move</u>:
               </b>{' '}
-              move task to another tag
+              將任務移至其他標籤
             </p>
             <p>
               <b>
                 <u>d</u>elete:
               </b>{' '}
-              delete task
+              刪除任務
             </p>
             <p>
               <b>
                 <u>a</u>rchive:
               </b>{' '}
-              archive a task
+              封存任務
             </p>
             <p>
               <b>
                 <u>re</u>store:
               </b>{' '}
-              unarchive a task
+              復原封存任務
             </p>
             <p>
               <b>
                 <u>sw</u>itch:
               </b>{' '}
-              switch the working task
+              切換正在進行的任務
             </p>
             <p>
               <b>
                 <u>list-archived</u>:
               </b>{' '}
-              show archived tasks
+              顯示封存任務
             </p>
             <p>
               <b>
                 <u>today</u>:
               </b>{' '}
-              show today overview
+              顯示今日總覽
             </p>
             <p>
               <b>
                 <u>customize</u>:
               </b>{' '}
-              show CSS editor
+              開啟 CSS 編輯器
             </p>
             <p>
               <b>
                 <u>help</u>:
               </b>{' '}
-              show help page
+              顯示說明頁
             </p>
           </span>
         ) : null}
@@ -447,7 +446,7 @@ export const InputBox = props => {
     <div className={'fixed bottom-0 right-0 m-5'}>
       <span
         className={'hidden sm:block bg-white px-3 py-2 rounded-lg shadow-lg'}>
-        Type anything, or press <code>/</code> to search.
+        隨時輸入指令，或按 <code>/</code> 進行搜尋。
       </span>
       <button
         onClick={openInput.bind(this.false, this.false)}

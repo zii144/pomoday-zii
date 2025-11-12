@@ -41,10 +41,10 @@ export const ArchivedList = props => {
       <div className="el-archived-list w-full flex flex-col">
         <div className="mb-4">
           <div className="el-sideview-header text-stall-dim font-bold text-lg">
-            Archived
+            已封存的任務
           </div>
           <div className="el-sideview-sub-header text-sm text-stall-dim font-normal uppercase">
-            {archivedItems.length} tasks
+            共 {archivedItems.length} 項任務
           </div>
         </div>
         <div className="h-full overflow-y-auto">

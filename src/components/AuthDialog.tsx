@@ -50,13 +50,13 @@ export const AuthDialog = props => {
           setUIState({
             status: UIAuthState.WAIT,
             errorMessage:
-              'Failed to login. Please check your username, password and server, then try again.',
+              '登入失敗。請確認使用者名稱、密碼與伺服器資訊後再試一次。',
           });
         });
     } else {
       setUIState({
         status: UIAuthState.WAIT,
-        errorMessage: 'Please fill out all the information above.',
+        errorMessage: '請完整填寫上方所有欄位。',
       });
     }
   };
@@ -77,7 +77,7 @@ export const AuthDialog = props => {
   useEventListener('keyup', processKey);
 
   return (
-    <div className="bg-white p-5 text-left absolute top-0 left-0 right-0 bottom-0">
+    <div className="bg-background text-foreground p-5 text-left absolute top-0 left-0 right-0 bottom-0">
       <div className={'block sm:hidden fixed bottom-0 right-0 m-5 z-50'}>
         <button
           onClick={closeDialog}
@@ -89,12 +89,10 @@ export const AuthDialog = props => {
       </div>
       {uiState.status === UIAuthState.WAIT ? (
         <>
-          <div className={'p-3'}>
-            Please enter your username as password here:
-          </div>
+          <div className={'p-3'}>請在此輸入登入資訊：</div>
           <div className={'p-3 inline-block'}>
             <div className={'my-2 flex flex-row'}>
-              <span className={'w-4/12'}>Username:</span>
+              <span className={'w-4/12'}>使用者名稱：</span>
               <input
                 tabIndex={1}
                 ref={usernameRef}
@@ -103,7 +101,7 @@ export const AuthDialog = props => {
               />
             </div>
             <div className={'my-2 flex flex-row'}>
-              <span className={'w-4/12'}>Password:</span>
+              <span className={'w-4/12'}>密碼：</span>
               <input
                 tabIndex={2}
                 ref={passwordRef}
@@ -112,7 +110,7 @@ export const AuthDialog = props => {
               />
             </div>
             <div className={'my-2 flex flex-row'}>
-              <span className={'w-4/12'}>Server:</span>
+              <span className={'w-4/12'}>伺服器：</span>
               <input
                 tabIndex={3}
                 ref={serverRef}
@@ -128,20 +126,20 @@ export const AuthDialog = props => {
                 className={
                   'px-5 py-1 bg-green text-white focus:opacity-75 hover:opacity-75'
                 }>
-                Login
+                登入
               </button>
             </div>
           </div>
           <div className={'p-3 text-tomato'}>{uiState.errorMessage}</div>
           <div className={'p-3'}>
-            After login, your data will be automatically synced to the server.
+            登入後系統會自動與伺服器同步你的資料。
             <br />
-            Press <code>ESC</code> key to cancel login and close this dialog.
+            按下 <code>ESC</code> 取消登入並關閉視窗。
           </div>
         </>
       ) : null}
       {uiState.status === UIAuthState.LOADING ? (
-        <div className={'p-3'}>Connecting to server...</div>
+        <div className={'p-3'}>正在連線伺服器...</div>
       ) : null}
     </div>
   );

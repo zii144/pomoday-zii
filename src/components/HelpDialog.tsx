@@ -37,18 +37,18 @@ export const HelpDialog = props => {
         </div>
         <div
           className={
-            'block p-5 border border-control bg-white rounded-lg shadow-xl'
+            'block p-5 border border-control bg-background text-foreground rounded-lg shadow-xl'
           }>
           <div className={'text-left'}>
-            Hey! Help page has been moved to our{' '}
+            嗨！完整的使用說明已移至{' '}
             <a
               className={'text-tomato'}
               href={'https://github.com/huytd/pomoday-v2/wiki'}
               target={'_blank'}
               rel={'nofollow'}>
-              Github
+              GitHub
             </a>{' '}
-            Wiki.
+            Wiki。
           </div>
           <div>
             <a
@@ -58,11 +58,11 @@ export const HelpDialog = props => {
               href={'https://github.com/huytd/pomoday-v2/wiki'}
               target={'_blank'}
               rel={'nofollow'}>
-              Go to Wiki
+              前往 Wiki
             </a>
           </div>
           <div className={'hidden sm:block text-left'}>
-            You can press <code>ESC</code> to close this dialog.
+            按下 <code>ESC</code> 即可關閉此視窗。
           </div>
         </div>
       </div>

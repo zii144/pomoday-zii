@@ -1,134 +1,131 @@
 <p align="center"><img src="./logo.png" width="300px;" /></p>
-<p align="center" style="font-weight: bold; text-align: center; font-family: monospace; padding-bottom: 15px;">Be productive without leaving your keyboard</p>
+<p align="center" style="font-weight: bold; text-align: center; font-family: monospace; padding-bottom: 15px;">留在鍵盤前，也能高效完成所有任務</p>
 
 <p align="center" style="text-align: center;"><a href="https://opencollective.com/pomoday-project" alt="Financial Contributors on Open Collective"><img src="https://opencollective.com/pomoday-project/all/badge.svg?label=financial+contributors&style=for-the-badge" /></a> <img src="https://img.shields.io/github/license/huytd/pomoday-v2?style=for-the-badge"/> <img src="https://img.shields.io/badge/%23-community%20edition-blueviolet?style=for-the-badge"/></p>
 
-<p align="center">Try it online at https://pomoday.vercel.app</p>
+<p align="center">線上體驗：https://pomoday.vercel.app</p>
 
 ---
 
-- [What is Pomoday?](#what-is-pomoday)
-- [Features](#features)
-- [Usage and Installation](#usage-and-installation)
-    - [Online version](#online-version)
-    - [Self-hosted](#self-hosted-version)
-- [Development](#development)
-- [Syncing across devices](#syncing-across-devices)
-- [Similar Projects](#similar-projects)
-- [Backers and Sponsors](#backers-and-sponsors)
-- [License](#license)
+- [Pomoday 是什麼？](#pomoday-是什麼)
+- [核心特色](#核心特色)
+- [使用與安裝指南](#使用與安裝指南)
+  - [線上版本](#線上版本)
+  - [自架部署](#自架部署)
+- [開發模式](#開發模式)
+- [Docker 支援](#docker-支援)
+- [跨裝置同步](#跨裝置同步)
+- [相似工具](#相似工具)
+- [贊助與支持](#贊助與支持)
+- [授權條款](#授權條款)
 
 ---
 
-## What is Pomoday?
+## Pomoday 是什麼？
 
 ![](screenshot.png)
 
-Pomoday is an easy to use, yet powerful and flexible web-based task management software that you can use with just a keyboard.
+Pomoday 是一套專為鍵盤操作打造的任務管理與番茄鐘工具。介面俐落、上手快速，卻仍保有高度彈性：你可以自由組合 GTD、Kanban、番茄工作法等不同工作流，建立專屬自己的高效率系統。
 
-It's flexible and doesn't tie with any productivity methodologies, that means, you
-can customize and use it in anyway you want, try implementing yourself a GTD or Kanban or
-Pomodoro workflow with it.
+## 核心特色
 
-## Features
+1. 任務管理與標籤分類
+2. 完整鍵盤指令操作流程
+3. 內建工作計時器與時間統計
+4. 今日活動日誌，隨時掌握專注度
+5. 支援深色模式
+6. 更多功能持續演進中
 
-1. Task management (of course)
-2. Keyboard only workflow
-3. Built-in time tracker
-4. Activities log to get an overview on how you spent your day
-5. Dark mode
-6. (A lot coming...)
+## 使用與安裝指南
 
-## Usage and Installation
+你可以透過以下兩種方式使用 Pomoday：
 
-There are two ways to use Pomoday:
+### 線上版本
 
-### Online version
+直接造訪 https://pomoday.app 即可使用最新版本。
 
-You can use the online version at https://pomoday.app
+### 自架部署
 
-### Self-hosted version
+開始之前，請確認系統已安裝 `node` 與 `npm`。
 
-Please make sure you have `node` and `npm` installed on your machine.
+1. 下載程式碼
 
-To host Pomoday locally or on your own server:
+   ```
+   git clone https://github.com/huytd/pomoday-v2
+   ```
 
-1. Clone this repository
-  ```
-  git clone https://github.com/huytd/pomoday-v2
-  ```
-2. Install the dependencies
-  ```
-  npm install
-  ```
-3. Build
-  ```
-  npm run dist
-  ```
-4. Now you can deploy the `dist` folder anywhere, just like a static web page
+2. 安裝相依套件
 
-It's recommended to deploy it to [now.sh](https://now.sh), because it's easy:
+   ```
+   npm install
+   ```
+
+3. 建置專案
+
+   ```
+   npm run dist
+   ```
+
+4. 將輸出的 `dist` 資料夾部署到任一靜態網站主機即可。
+
+推薦使用 [Vercel](https://vercel.com/)（原 now.sh）快速部屬：
 
 ```
 $ cd dist
-$ now
+$ vercel
 ```
 
-## Development
+## 開發模式
 
-To run it locally during development, use:
+在開發環境中啟動即時預覽：
 
 ```
 npm run dev
 ```
 
-## Docker
+## Docker 支援
 
-This repo includes a `Dockerfile` and a `docker-compose.yml` to easily run the project in a container. Just run the following two commands to build the container image and start it up:
+專案已提供 `Dockerfile` 與 `docker-compose.yml`，方便以容器方式運行：
 
 ```
 $ docker-compose build
 $ docker-compose up -d
 ```
 
-## Syncing across devices
+## 跨裝置同步
 
-To sync the data across devices, you'll need to implement your own backend, please see [Backend API Specification](https://github.com/huytd/pomoday-v2/wiki/Pomoday-Backend-API-Specification) for the details.
+若想自行串接雲端同步功能，請參考 [後端 API 規格說明](https://github.com/huytd/pomoday-v2/wiki/Pomoday-Backend-API-Specification) 自建服務。
 
-To use https://pomoday.app with your own backend, there's a `login` command in the app, you'll be able to put your backend API URL there.
+在前端應用中輸入 `login` 指令，便可填入自架後端的 API URL。你也可以參考社群整理的 [第三方後端清單](<https://github.com/huytd/pomoday-v2/wiki/Backend-(for-data-synchronize)>)，挑選適合的部署方案。
 
-You can also check the list of [3rd party backend](https://github.com/huytd/pomoday-v2/wiki/Backend-(for-data-synchronize)) for self-hosted options.
+## 相似工具
 
-## Similar Projects
+- [taskbook](https://github.com/klaussinani/taskbook)：出色的 CLI 任務管理應用，是 Pomoday 的靈感來源之一。
 
-- [taskbook](https://github.com/klaussinani/taskbook): This is an awesome task management application that actually works, and works very well for everyone who likes to live in a command line. Pomoday was also heavily inspired by Taskbook, as you can see from the UI and the keyboard-only command interfaces.
+## 贊助與支持
 
-## Backers and Sponsors
-
-I would like to give a special thanks to all of the advisors and backers who sponsored this project since day-zero.
+感謝所有自專案創立以來就鼎力相助的夥伴與贊助者：
 
 | <a href="https://github.com/imhuyqn"><img src="https://avatars0.githubusercontent.com/u/2289071?s=460&v=4" width="48" height="48"/></a> | <a href="https://github.com/ledongthuc"><img src="https://avatars1.githubusercontent.com/u/1828895?s=460&v=4" width="48" height="48"/></a> | <a href="https://github.com/trungfinity"><img src="https://avatars1.githubusercontent.com/u/6896444?s=460&v=4" width="48" height="48"/></a> | <a href="https://github.com/thaod"><img src="https://avatars3.githubusercontent.com/u/11632797?s=460&v=4" width="48" height="48"/></a> | <a href="https://github.com/mquy"><img src="https://avatars0.githubusercontent.com/u/1636026?s=460&v=4" width="48" height="48"/></a> | <a href="https://github.com/quannt"><img src="https://avatars1.githubusercontent.com/u/3423859?s=460&v=4" width="48" height="48"/></a> | <a href="https://github.com/dvkndn"><img src="https://avatars1.githubusercontent.com/u/5953369?s=460&v=4" width="48" height="48"/> |
-|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-|[**imhuyqn**](https://github.com/imhuyqn)|[**ledongthuc**](https://github.com/ledongthuc)|[**trungfinity**](https://github.com/trungfinity)|[**thaod**](https://github.com/thaod)|[**mquy**](https://github.com/mquy)|[**quannt**](https://github.com/quannt)|[**dvkndn**](https://github.com/dvkndn)|
+| :-------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: |
+|                                                [**imhuyqn**](https://github.com/imhuyqn)                                                |                                              [**ledongthuc**](https://github.com/ledongthuc)                                               |                                              [**trungfinity**](https://github.com/trungfinity)                                              |                                                 [**thaod**](https://github.com/thaod)                                                  |                                                 [**mquy**](https://github.com/mquy)                                                  |                                                [**quannt**](https://github.com/quannt)                                                 |                                              [**dvkndn**](https://github.com/dvkndn)                                               |
 
-## Contributors
+### 程式貢獻者
 
-### Code Contributors
-
-This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+感謝每一位投入心力的貢獻者。[[加入我們](CONTRIBUTING.md)]
 <a href="https://github.com/huytd/pomoday-v2/graphs/contributors"><img src="https://opencollective.com/pomoday-project/contributors.svg?width=890&button=false" /></a>
 
-### Financial Contributors
+### 資金贊助者
 
-Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/pomoday-project/contribute)]
+想贊助 Pomoday 的長期發展？[[前往贊助](https://opencollective.com/pomoday-project/contribute)]
 
-#### Individuals
+#### 個人贊助
 
 <a href="https://opencollective.com/pomoday-project"><img src="https://opencollective.com/pomoday-project/individuals.svg?width=890"></a>
 
-#### Organizations
+#### 組織贊助
 
-Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/pomoday-project/contribute)]
+若你的團隊願意贊助我們，我們會在此展示貴單位 Logo 與網站連結。[[立即支持](https://opencollective.com/pomoday-project/contribute)]
 
 <a href="https://opencollective.com/pomoday-project/organization/0/website"><img src="https://opencollective.com/pomoday-project/organization/0/avatar.svg"></a>
 <a href="https://opencollective.com/pomoday-project/organization/1/website"><img src="https://opencollective.com/pomoday-project/organization/1/avatar.svg"></a>
@@ -141,7 +138,6 @@ Support this project with your organization. Your logo will show up here with a 
 <a href="https://opencollective.com/pomoday-project/organization/8/website"><img src="https://opencollective.com/pomoday-project/organization/8/avatar.svg"></a>
 <a href="https://opencollective.com/pomoday-project/organization/9/website"><img src="https://opencollective.com/pomoday-project/organization/9/avatar.svg"></a>
 
-## License
+## 授權條款
 
-Pomoday is published under BSD 3-Clause license.
-
+Pomoday 以 BSD 3-Clause 授權條款釋出。

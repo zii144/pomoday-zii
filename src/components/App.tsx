@@ -26,60 +26,60 @@ import { Settings } from './Settings';
 export const StateContext = React.createContext<any>(null);
 
 const tutorialTasks: TaskItem[] = [
-  createTask(1, '@demo', "Let's learn the basic of Pomoday:", TaskStatus.FLAG),
-  createTask(2, '@demo', 'This is a task', TaskStatus.WAIT),
-  createTask(3, '@demo', 'This is an ongoing task', TaskStatus.WIP, [
+  createTask(1, '@demo', '來認識 Pomoday 的基本操作：', TaskStatus.FLAG),
+  createTask(2, '@demo', '這是一個任務', TaskStatus.WAIT),
+  createTask(3, '@demo', '這是一個正在進行的任務', TaskStatus.WIP, [
     { start: Date.now(), end: 0 },
   ]),
-  createTask(4, '@demo', 'This is a finished task', TaskStatus.DONE, [
+  createTask(4, '@demo', '這是一個已完成的任務', TaskStatus.DONE, [
     { start: Date.now() - 1.5 * 60 * 60 * 1000, end: Date.now() },
   ]),
   createTask(
     5,
     '@demo',
-    'You can open the command input by pressing any key. Multiline input starts with capital characters.',
+    '按下任意鍵即可開啟指令輸入。要輸入多行內容，請以大寫字母開頭。',
     TaskStatus.WAIT,
   ),
   createTask(
     6,
     '@demo',
-    'In the command input, you can create a new task by entering the task content. Yes, markdown is\n\nsupported! You can also create a task with a tag, type `@<tag-name>` at the beginning.',
+    '在指令輸入框中輸入文字即可建立新任務。支援 Markdown！想加上標籤，只要在開頭輸入 `@標籤名稱`。',
     TaskStatus.WAIT,
   ),
   createTask(
     7,
     '@demo',
-    'Type `b` or `begin` followed by the `task id` to start the timer on a task.',
+    '輸入 `b` 或 `begin` 加上任務編號即可開始計時。',
     TaskStatus.WAIT,
   ),
   createTask(
     8,
     '@demo',
-    'Type `st` or `stop` followed by the `task id` to stop the timer.',
+    '輸入 `st` 或 `stop` 加上任務編號即可停止計時。',
     TaskStatus.WAIT,
   ),
   createTask(
     9,
     '@demo',
-    'Now, try use `c` or `check` followed by the `task id` to mark a task as done.',
+    '試著輸入 `c` 或 `check` 加上任務編號，把任務標記為完成。',
     TaskStatus.WAIT,
   ),
   createTask(
     10,
     '@demo',
-    'Type `e` or `edit`, followed by the `task id` to edit task content.',
+    '輸入 `e` 或 `edit` 加上任務編號即可編輯任務內容。',
     TaskStatus.WAIT,
   ),
   createTask(
     11,
     '@demo',
-    "To see how your day's going, type `today`. Try it!",
+    '想看看今天的進度嗎？輸入 `today` 試試看！',
     TaskStatus.WAIT,
   ),
   createTask(
     12,
     '@demo',
-    "That's all! Now, type `delete @demo` to remove all of this tutorial content and start using Pomoday!",
+    '全部學會了！現在輸入 `delete @demo` 刪除教學內容，開始使用 Pomoday！',
     TaskStatus.FLAG,
   ),
 ];
@@ -207,10 +207,10 @@ export const App = () => {
         return arr;
       }, [])
       .map(t => {
-        if (t === 'done') return 'Finished';
-        if (t === 'flagged') return 'Flagged';
-        if (t === 'wait') return 'Pending';
-        if (t === 'wip') return 'On Going';
+        if (t === 'done') return '已完成';
+        if (t === 'flagged') return '已標記';
+        if (t === 'wait') return '等待中';
+        if (t === 'wip') return '進行中';
       });
     return hidden;
   };
@@ -334,9 +334,9 @@ export const App = () => {
         {/* Filtering */}
         {state.filterBy ? (
           <div className={'p-5'}>
-            Search result for: "<b>{state.filterBy}"</b>
+            搜尋結果：「<b>{state.filterBy}</b>」
             <br />
-            Press <code>ESC</code> to go back.
+            按下 <code>ESC</code> 返回。
           </div>
         ) : null}
         <div className="flex-1 flex flex-col sm:flex-row bg-background overflow-hidden no-drag">
@@ -348,8 +348,8 @@ export const App = () => {
                 className={
                   'absolute flex flex-col leading-relaxed justify-center items-center top-0 left-0 right-0 bottom-0 text-center text-lg sm:text-xl text-foreground'
                 }>
-                <div>Need to get some work done?</div>
-                <div>Let's add some task!</div>
+                <div>準備開始行動了嗎？</div>
+                <div>現在就新增第一個任務！</div>
               </div>
             </div>
           ) : (
@@ -358,8 +358,8 @@ export const App = () => {
               className="el-main-view flex-1 p-5 h-full overflow-y-auto">
               {taskGroups.hidden.length ? (
                 <div className="pb-5 text-stall-dim">
-                  {taskGroups.hidden.length} tasks in{' '}
-                  {getVisibilityStatusText().join(', ')} group are hidden.
+                  {taskGroups.hidden.length} 個任務在{' '}
+                  {getVisibilityStatusText().join('、')} 分類中被隱藏。
                 </div>
               ) : null}
               <div>
@@ -391,14 +391,14 @@ export const App = () => {
                 <Row
                   customClass={'text-sm'}
                   type={RowType.TEXT}
-                  text={`${(
+                  text={`全部任務完成率 ${(
                     (summary.done / state.tasks.length) * 100 || 0
-                  ).toFixed(0)}% of all tasks complete.`}
+                  ).toFixed(0)}%`}
                 />
                 <Row
                   customClass={'text-sm'}
                   type={RowType.TEXT}
-                  text={`<span class="text-green">${summary.done}</span> done · <span class="text-orange">${summary.wip}</span> in-progress · <span class="text-purple">${summary.pending}</span> waiting`}
+                  text={`<span class="text-green">${summary.done}</span> 已完成 · <span class="text-orange">${summary.wip}</span> 進行中 · <span class="text-purple">${summary.pending}</span> 等待中`}
                 />
                 <Row type={RowType.TEXT} text={''} />
               </div>

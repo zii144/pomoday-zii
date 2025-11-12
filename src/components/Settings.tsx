@@ -33,7 +33,7 @@ export const Settings = props => {
             ✕
           </button>
         </div>
-        <h1 className={'text-lg font-bold mb-5'}>Settings</h1>
+        <h1 className={'text-lg font-bold mb-5'}>設定</h1>
         {/* Dark mode */}
         {/*<div className={"block flex flex-row mt-3"}>*/}
         {/*  <span className={"mr-5"}>Use system preference for Dark Mode</span>*/}
@@ -50,7 +50,7 @@ export const Settings = props => {
         {/*<div className={"block flex text-xs flex-row text-stall-dim"}>Automatically turn Dark Mode on or off when your system changes.</div>*/}
         {/* Sticky input */}
         <div className={'block flex flex-row mt-3'}>
-          <span className={'mr-5'}>Sticky Input Box</span>
+          <span className={'mr-5'}>固定輸入框</span>
           <input
             type={'checkbox'}
             checked={state.settings.stickyInput}
@@ -66,11 +66,11 @@ export const Settings = props => {
           />
         </div>
         <div className={'block flex text-xs flex-row text-stall-dim'}>
-          Always show the command input at the bottom of the screen
+          總是在畫面底部顯示指令輸入框
         </div>
         {/* Command hint box */}
         <div className={'block flex flex-row mt-3'}>
-          <span className={'mr-5'}>Display command hint popup</span>
+          <span className={'mr-5'}>顯示指令提示框</span>
           <input
             type={'checkbox'}
             checked={state.settings.hintPopup}
@@ -86,13 +86,12 @@ export const Settings = props => {
           />
         </div>
         <div className={'block flex text-xs flex-row text-stall-dim'}>
-          Display the command hint box at the bottom right of the screen
+          在畫面右下顯示指令提示
         </div>
 
         {/* End of settings */}
         <div className={'block border-t border-stall-light pt-5 mt-5'}>
-          All settings are automatically saved. Press <code>ESC</code> to close
-          this dialog.
+          所有設定皆會自動儲存。按下 <code>ESC</code> 關閉此視窗。
         </div>
       </div>
     </div>

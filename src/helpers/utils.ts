@@ -38,13 +38,13 @@ export const getHistoryQueue = (serialized?: any) => {
   if (!serialized) {
     serialized = {
       store: [
-        'task @tag-name Task content here',
-        'begin [task-id]',
-        'stop [task-id]',
-        'edit [task-id] New task description',
-        'move [task-id] @new-tag',
-        'archive [task-id]',
-        'restore [task-id]',
+        'task @標籤名稱 請輸入任務內容',
+        'begin [任務編號]',
+        'stop [任務編號]',
+        'edit [任務編號] 更新後的內容',
+        'move [任務編號] @新標籤',
+        'archive [任務編號]',
+        'restore [任務編號]',
         'dark',
         'light',
       ],
@@ -154,9 +154,9 @@ export const counterAsString = counter => {
   const hrs = ~~(remain / 3600);
   const min = ~~((remain - hrs * 3600) / 60);
   const sec = ~~(remain % 60);
-  return `${days > 0 ? days + ' days' : ''} ${
-    hrs > 0 ? pad(hrs) + ':' : ''
-  }${pad(min)}:${pad(sec)}`;
+  return `${days > 0 ? `${days} 天` : ''}${
+    days > 0 && (hrs > 0 || min > 0 || sec > 0) ? ' ' : ''
+  }${hrs > 0 ? pad(hrs) + ':' : ''}${pad(min)}:${pad(sec)}`;
 };
 
 export const counterAsLog = counter => {
@@ -165,9 +165,18 @@ export const counterAsLog = counter => {
   const hrs = ~~(remain / 3600);
   const min = ~~((remain - hrs * 3600) / 60);
   const sec = ~~(remain % 60);
-  return `${days > 0 ? days + ' days ' : ''}${
-    hrs > 0 ? pad(hrs) + ' hrs ' : ''
-  }${min > 0 ? pad(min) + ' min ' : ''}${pad(sec) + ' sec '}`;
+  const parts = [];
+  if (days > 0) {
+    parts.push(`${days} 天`);
+  }
+  if (hrs > 0) {
+    parts.push(`${pad(hrs)} 小時`);
+  }
+  if (min > 0) {
+    parts.push(`${pad(min)} 分`);
+  }
+  parts.push(`${pad(sec)} 秒`);
+  return parts.join(' ');
 };
 
 const processInlineTag = input =>

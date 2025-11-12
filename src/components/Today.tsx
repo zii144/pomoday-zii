@@ -50,7 +50,7 @@ export const Today = props => {
     return (
       <>
         <div className="el-sideview-header text-stall-dim font-bold text-lg">
-          Activities Today
+          今日活動
         </div>
         <div className="el-sideview-sub-header text-sm text-stall-dim font-normal uppercase">
           {`${new Date().toLocaleDateString()}`}
@@ -111,7 +111,7 @@ export const Today = props => {
         </div>
       ))}
       <div className="mt-4">
-        Time spent:{' '}
+        花費時間：{' '}
         <span className="text-tomato">{counterAsLog(totalTime)}</span>
       </div>
     </>

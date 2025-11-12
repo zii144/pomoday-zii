@@ -5,12 +5,12 @@ import marked from 'marked';
 import { useEventListener } from '../helpers/hooks';
 
 const QUICK_HELP_TEXT = [
-  "<img src='https://pomoday-cdn.now.sh/logo.png' style='border: none; box-shadow: none; width: 50%; margin: 10px auto;' /><p style='margin: 5px 0;'>Welcome to Pomoday, a keyboard-only task management application that help you be more productive!</p><p style='margin: 5px 0;'>Let's get started!</p>",
-  '**#1:** Type any key to start.\n![](https://pomoday-cdn.now.sh/quickhelp/quickhelp-01.gif)',
-  '**#2:** Type `t` or `task` to create a new task.\n![](https://pomoday-cdn.now.sh/quickhelp/quickhelp-02.gif)',
-  '**#3:** You can start a task timer with `b` or `begin` command. Stop it with `st` or `stop` command.\n![](https://pomoday-cdn.now.sh/quickhelp/quickhelp-03.gif)',
-  '**#4:** You can flag a task with `fl` or `flag`. Or delete it with `d` or `delete` command.\n![](https://pomoday-cdn.now.sh/quickhelp/quickhelp-04.gif)',
-  "🎉 That's all of the basic you need! You can type `help` to learn more about Pomoday anytime! Now press `ESC` to close this help and go try it yourself!",
+  "<img src='https://pomoday-cdn.now.sh/logo.png' style='border: none; box-shadow: none; width: 50%; margin: 10px auto;' /><p style='margin: 5px 0;'>歡迎使用 Pomoday，一款以鍵盤操作為核心的任務管理工具，幫助你維持高效率！</p><p style='margin: 5px 0;'>一起開始體驗吧！</p>",
+  '**#1：** 按任意鍵開啟指令輸入框。\n![](https://pomoday-cdn.now.sh/quickhelp/quickhelp-01.gif)',
+  '**#2：** 輸入 `t` 或 `task` 建立新的任務。\n![](https://pomoday-cdn.now.sh/quickhelp/quickhelp-02.gif)',
+  '**#3：** 使用 `b` 或 `begin` 指令啟動計時，`st` 或 `stop` 結束計時。\n![](https://pomoday-cdn.now.sh/quickhelp/quickhelp-03.gif)',
+  '**#4：** 用 `fl` 或 `flag` 標記重要任務，也可以用 `d` 或 `delete` 刪除。\n![](https://pomoday-cdn.now.sh/quickhelp/quickhelp-04.gif)',
+  '🎉 你已學會所有基本操作！隨時輸入 `help` 了解更多。現在按下 `ESC` 關閉提示，開始實際操作吧！',
 ];
 
 export const QuickHelp = props => {
@@ -80,8 +80,8 @@ export const QuickHelp = props => {
           className={
             'border-t hidden sm:block border-control pt-3 text-xs text-stall-dim'
           }>
-          Press <b>J</b>/<b>K</b> or <b>UP</b>/<b>DOWN</b> for next/previous
-          pages. <b>ESC</b> to close this help.
+          按 <b>J</b>/<b>K</b> 或 <b>UP</b>/<b>DOWN</b> 切換頁面，<b>ESC</b>{' '}
+          關閉提示。
         </div>
         <div className={'border-t sm:hidden border-control pt-3 text-xs'}>
           <div className={'flex flex-row'}>
@@ -90,19 +90,19 @@ export const QuickHelp = props => {
                 <button
                   onClick={prevPage}
                   className={'flex-1 bg-stall-light py-2 mx-1 rounded-lg'}>
-                  &lt; Previous
+                  &lt; 上一頁
                 </button>
                 <button
                   onClick={nextPage}
                   className={'flex-1 bg-stall-light py-2 mx-1 rounded-lg'}>
-                  Next &gt;
+                  下一頁 &gt;
                 </button>
               </>
             ) : (
               <button
                 onClick={closeHelp}
                 className={'flex-1 bg-stall-light py-2 mx-1 rounded-lg'}>
-                Close
+                關閉
               </button>
             )}
           </div>

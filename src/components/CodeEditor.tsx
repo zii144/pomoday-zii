@@ -61,7 +61,7 @@ export const CodeEditor = props => {
       <div className={'flex-1 flex flex-col'}>
         <div className="mb-4">
           <div className="el-sideview-header text-stall-dim font-bold text-lg">
-            Customization
+            自訂樣式
           </div>
         </div>
         <textarea
@@ -69,7 +69,7 @@ export const CodeEditor = props => {
           onKeyPress={processEnterKey}
           onChange={updateCustomCSS}
           className="flex-1 bg-transparent resize-none focus:outline-none"
-          placeholder="Enter custom CSS styles here..."
+          placeholder="在此輸入自訂 CSS 樣式..."
           value={state.customCSS}
         />
       </div>

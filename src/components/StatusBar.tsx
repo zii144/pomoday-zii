@@ -33,7 +33,7 @@ export const StatusBar = props => {
                     duration,
                   )}`}
                   title={
-                    'Last synced at ' +
+                    '上次同步時間：' +
                     new Date(state.lastSync).toLocaleTimeString()
                   }
                   href="javascript:void(0)">
@@ -56,13 +56,13 @@ export const StatusBar = props => {
                   className="fill-current w-4 h-4"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20">
-                  <title>Powerpack</title>
+                  <title>進階功能</title>
                   <path d="M13,8 L13,0 L3,12 L7,12 L7,20 L17,8 L13,8 Z"></path>
                 </svg>
               </a>
               <a
                 className="block flex items-center hover:text-gray-700 ml-4"
-                title={'Source code'}
+                title={'原始碼'}
                 target={'_blank'}
                 rel={'nofollow'}
                 href="https://github.com/huytd/pomoday-v2">
@@ -76,7 +76,7 @@ export const StatusBar = props => {
               </a>
               <a
                 className="block flex items-center hover:text-gray-700 ml-4"
-                title={'Help'}
+                title={'說明文件'}
                 target={'_blank'}
                 rel={'nofollow'}
                 href="https://github.com/huytd/pomoday-v2/wiki">
@@ -90,7 +90,7 @@ export const StatusBar = props => {
               </a>
               <a
                 className="block flex items-center hover:text-gray-700 ml-4"
-                title={'Report a bug'}
+                title={'回報問題'}
                 target={'_blank'}
                 rel={'nofollow'}
                 href="https://github.com/huytd/pomoday-v2/issues/new">
@@ -108,7 +108,7 @@ export const StatusBar = props => {
               </a>
               <a
                 className="flex items-center hover:text-gray-700 cursor-pointer ml-4"
-                title={'Setting'}
+                title={'設定'}
                 onClick={() => {
                   setState({
                     ...state,
